@@ -1,16 +1,15 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClipboardCheck } from "@fortawesome/free-solid-svg-icons";
+
 
 export default function Header() {
   return (
     <header class="px-4 lg:px-6 py-2.5">
       <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
         <a href="/" class="flex items-center">
-          <img
-            src="https://flowbite.com/docs/images/logo.svg"
-            class="mr-3 h-6 sm:h-9"
-            alt="Flowbite Logo"
-          />
-          <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+          <FontAwesomeIcon icon={faClipboardCheck} />
+          <span class="ml-2 self-center text-xl font-semibold whitespace-nowrap dark:text-white">
             Todolist
           </span>
         </a>
@@ -60,7 +59,7 @@ export default function Header() {
           id="mobile-menu-2"
         >
           <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-            <li>
+            {/* <li>
               <a
                 href="#"
                 class="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
@@ -68,7 +67,7 @@ export default function Header() {
               >
                 Home
               </a>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
