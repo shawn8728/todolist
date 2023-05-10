@@ -5,9 +5,8 @@ import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 
 export default function Footer() {
   return (
-    <footer className="p-4 sm:p-6">
+    <footer className="p-4 sm:p-6 w-full">
       <div className="p-4 sm:p-6 mx-auto max-w-screen-xl">
-        <div className="md:flex md:justify-between"></div>
         <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
         <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
