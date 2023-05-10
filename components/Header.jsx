@@ -1,4 +1,5 @@
-"use client";
+'use client';
+
 import React from "react";
 import { Dropdown } from "flowbite-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
