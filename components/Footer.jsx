@@ -22,21 +22,21 @@ export default function Footer() {
               target="_blank"
               className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
             >
-              <FontAwesomeIcon icon={faLinkedin} />
+              <FontAwesomeIcon icon={faLinkedin} size="lg" />
             </a>
             <a
               href="https://github.com/shawn8728"
               target="_blank"
               className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
             >
-              <FontAwesomeIcon icon={faGithub} />
+              <FontAwesomeIcon icon={faGithub} size="lg" />
             </a>
             <a
               href="#"
               target="_blank"
               className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
             >
-              <FontAwesomeIcon icon={faEnvelope} />
+              <FontAwesomeIcon icon={faEnvelope} size="lg" />
             </a>
           </div>
         </div>
