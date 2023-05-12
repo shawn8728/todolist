@@ -14,6 +14,8 @@ export default function Register() {
 
   async function handleRegister(e) {
     e.preventDefault();
+
+    // Check if passwords match
     if (confirmPassword !== password) {
       alert("Passwords do not match");
     } else {

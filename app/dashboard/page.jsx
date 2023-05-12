@@ -31,7 +31,6 @@ export default function DashBoard() {
 
   async function handleAdd(todo) {
     try {
-      // create a new key according to current time
       const createdTime = new Date().getTime();
 
       const taskId = uuidv4();
@@ -41,7 +40,11 @@ export default function DashBoard() {
       };
 
       const docRef = doc(db, "users", uid, "todos", taskId);
+
+      // Add a new document with a generated id
       await setDoc(docRef, todoData, { merge: true });
+
+      // Update the state
       setTodolist((prev) => [...prev, { ...todoData, id: taskId }]);
     } catch (err) {
       console.error(err);
@@ -51,9 +54,13 @@ export default function DashBoard() {
   async function handleEdit(id, edittedValue) {
     try {
       const docRef = doc(db, `users/${uid}/todos`, id);
+
+      // Update the todo that matches the id
       await updateDoc(docRef, {
         name: edittedValue,
       });
+
+      // Update the state
       setTodolist((prev) =>
         prev.map((todo) => {
           if (todo.id === id) {
@@ -71,7 +78,11 @@ export default function DashBoard() {
   async function handleDelete(id) {
     try {
       const docRef = doc(db, `users/${uid}/todos`, id);
+      
+      // Delete the todo that matches the id
       await deleteDoc(docRef);
+
+      // Filter out the todo that matches the id
       setTodolist((prev) => prev.filter((todo) => todo.id !== id));
     } catch (err) {
       console.error(err);
@@ -95,6 +106,7 @@ export default function DashBoard() {
     }
   }
 
+  // Fetch data when the component mounts, and redirect to home page if user is not logged in
   useEffect(() => {
     currentUser ? fetchData() : router.push("/");
   }, [currentUser, router]);
