@@ -34,7 +34,7 @@ npm run dev
 
 Head to localhost:
 
-http://localhost:8080/
+http://localhost:3000/
 
 # Deploying
 The app is deployed live using Railway. You can access it here: https://todolist-communicad-production.up.railway.app
