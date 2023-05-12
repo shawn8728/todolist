@@ -1,5 +1,5 @@
 # TodoList
-
+This project is built using Next.js, Firebase Authentication and Firestore as database.
 
 
 
