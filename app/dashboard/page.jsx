@@ -80,7 +80,7 @@ export default function DashBoard() {
 
   async function fetchData() {
     try {
-      const userRef = collection(db, "users", currentUser.uid, "todos");
+      const userRef = collection(db, "users", uid, "todos");
       const q = query(userRef, orderBy("createdTime"));
 
       const querySnapshot = await getDocs(q);
@@ -96,10 +96,9 @@ export default function DashBoard() {
   }
 
   useEffect(() => {
-    currentUser && fetchData();
-  }, [currentUser]);
+    currentUser ? fetchData() : router.push("/");
+  }, [currentUser, router]);
 
-  !currentUser && router.push("/login");
 
   return (
     <div className="py-8 px-4 mx-auto w-full max-w-prose">
