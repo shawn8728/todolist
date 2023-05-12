@@ -1,5 +1,9 @@
 # TodoList
 
+
+https://github.com/shawn8728/todolist/assets/80408942/7428e48d-2b39-4bdb-90e5-965ebe0a7665
+
+
 # Getting Started
 ## Step 1
 
