@@ -1,7 +1,11 @@
 # TodoList
 
 
-https://github.com/shawn8728/todolist/assets/80408942/7428e48d-2b39-4bdb-90e5-965ebe0a7665
+
+
+https://github.com/shawn8728/todolist/assets/80408942/d5e96fc0-2caf-4c5e-a3ab-7b88b655fa10
+
+
 
 
 # Getting Started
