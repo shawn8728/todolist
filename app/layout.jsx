@@ -9,6 +9,8 @@ import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 
 import { AuthProvider } from "@/context/AuthContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 // Prevent fontawesome from dynamically adding its css
 config.autoAddCss = false;
@@ -18,6 +20,9 @@ const inter = Inter({ subsets: ["latin"] });
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <title>Todolist</title>
+      </head>
       <body className={inter.className}>
         <AuthProvider>
           <div className="flex min-h-screen flex-col relative">
