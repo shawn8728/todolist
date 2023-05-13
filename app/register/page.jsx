@@ -16,5 +16,5 @@ export default function RegisterPage() {
     currentUser && router.push("/dashboard");
   }, [currentUser, router]);
 
-  return <Register />;
+  return !currentUser && <Register />;
 }

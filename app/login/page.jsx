@@ -16,5 +16,5 @@ export default function LoginPage() {
     currentUser && router.push("/dashboard");
   }, [currentUser, router]);
 
-  return <Login />;
+  return !currentUser && <Login />;
 }

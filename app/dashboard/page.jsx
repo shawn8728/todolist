@@ -78,7 +78,7 @@ export default function DashBoard() {
   async function handleDelete(id) {
     try {
       const docRef = doc(db, `users/${uid}/todos`, id);
-      
+
       // Delete the todo that matches the id
       await deleteDoc(docRef);
 
@@ -111,22 +111,23 @@ export default function DashBoard() {
     currentUser ? fetchData() : router.push("/");
   }, [currentUser, router]);
 
-
   return (
-    <div className="py-8 px-4 mx-auto w-full max-w-prose">
-      <div className="grid gap-8">
-        <CreateArea handleAdd={handleAdd} />
-        {todolist &&
-          todolist.map((todo) => (
-            <ToDoCard
-              key={todo.id}
-              id={todo.id}
-              name={todo.name}
-              handleEdit={handleEdit}
-              handleDelete={handleDelete}
-            />
-          ))}
+    currentUser && (
+      <div className="py-8 px-4 mx-auto w-full max-w-prose">
+        <div className="grid gap-8">
+          <CreateArea handleAdd={handleAdd} />
+          {todolist &&
+            todolist.map((todo) => (
+              <ToDoCard
+                key={todo.id}
+                id={todo.id}
+                name={todo.name}
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
+              />
+            ))}
+        </div>
       </div>
-    </div>
+    )
   );
 }
