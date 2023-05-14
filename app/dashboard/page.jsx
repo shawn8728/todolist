@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import ToDoCard from "../components/TodoCard";
+import ToDoCard from "@/app/components/TodoCard";
 import CreateArea from "@/app/components/CreateArea";
 
 import { useRouter } from "next/navigation";
