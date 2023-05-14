@@ -9,8 +9,6 @@ import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 
 import { AuthProvider } from "@/context/AuthContext";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 // Prevent fontawesome from dynamically adding its css
 config.autoAddCss = false;
