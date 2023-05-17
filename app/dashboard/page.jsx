@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { v4 as uuidv4 } from "uuid";
 
 import ToDoCard from "@/app/components/TodoCard";
 import CreateArea from "@/app/components/CreateArea";
@@ -9,16 +8,11 @@ import CreateArea from "@/app/components/CreateArea";
 import { useRouter } from "next/navigation";
 
 import {
-  doc,
-  collection,
-  getDocs,
-  setDoc,
-  updateDoc,
-  deleteDoc,
-  orderBy,
-  query,
-} from "firebase/firestore";
-import { db } from "@/firebase/firebase";
+  addTodo,
+  fetchTodo,
+  updateTodo,
+  deleteTodo,
+} from "@/firebase/firestoreServices";
 
 import { useAuth } from "@/context/AuthContext";
 
@@ -31,20 +25,8 @@ export default function DashBoard() {
 
   async function handleAdd(todo) {
     try {
-      const createdTime = new Date().getTime();
+      const { todoData, taskId } = await addTodo(todo, uid);
 
-      const taskId = uuidv4();
-      const todoData = {
-        name: todo,
-        createdTime: createdTime,
-      };
-
-      const docRef = doc(db, "users", uid, "todos", taskId);
-
-      // Add a new document with a generated id
-      await setDoc(docRef, todoData, { merge: true });
-
-      // Update the state
       setTodolist((prev) => [...prev, { ...todoData, id: taskId }]);
     } catch (err) {
       console.error(err);
@@ -53,14 +35,8 @@ export default function DashBoard() {
 
   async function handleEdit(id, edittedValue) {
     try {
-      const docRef = doc(db, `users/${uid}/todos`, id);
+      await updateTodo(edittedValue, uid, id);
 
-      // Update the todo that matches the id
-      await updateDoc(docRef, {
-        name: edittedValue,
-      });
-
-      // Update the state
       setTodolist((prev) =>
         prev.map((todo) => {
           if (todo.id === id) {
@@ -77,10 +53,7 @@ export default function DashBoard() {
 
   async function handleDelete(id) {
     try {
-      const docRef = doc(db, `users/${uid}/todos`, id);
-
-      // Delete the todo that matches the id
-      await deleteDoc(docRef);
+      await deleteTodo(uid, id);
 
       // Filter out the todo that matches the id
       setTodolist((prev) => prev.filter((todo) => todo.id !== id));
@@ -91,14 +64,7 @@ export default function DashBoard() {
 
   async function fetchData() {
     try {
-      const userRef = collection(db, "users", uid, "todos");
-      const q = query(userRef, orderBy("createdTime"));
-
-      const querySnapshot = await getDocs(q);
-      const fetchedData = querySnapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
+      const fetchedData = await fetchTodo(uid);
 
       setTodolist(fetchedData);
     } catch (err) {
