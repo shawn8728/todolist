@@ -10,7 +10,7 @@ import {
   orderBy,
   query,
 } from "firebase/firestore";
-import { db } from "@/firebase/firebase";
+import { db } from "@/firebase/firebaseConfigs";
 
 export async function addTodo(todo, uid) {
   const createdTime = new Date().getTime();
